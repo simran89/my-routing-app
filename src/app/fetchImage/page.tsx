@@ -27,7 +27,7 @@ function FetchImage() {
     return (
         <div>
             <h2>Random Image from Picsum</h2>
-            {imageUrl ? <img src={imageUrl} alt="Random" /> : <p>Loading...</p>}
+            {imageUrl ? <img src={imageUrl} alt="Random" width="200" height ="200" /> : <p>Loading...</p>}
             <br />
             <button onClick={stopTimer} disabled={!intervalId}>
                 Stop Timer
