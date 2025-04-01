@@ -1,4 +1,6 @@
 "use client"
+import Image from "next/image";
+
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -22,7 +24,7 @@ const App = () => {
   return (
     <div>
       <h1>Random Image</h1>
-      {imageUrl && <img src={imageUrl} alt="Randomly fetched" />}
+      {imageUrl && <Image src={imageUrl} alt="Randomly fetched" />}
     </div>
   );
 };

@@ -1,9 +1,10 @@
 "use client";
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
 function FetchImage() {
-    const [imageUrl, setImageUrl] = useState("");
-    const [intervalId, setIntervalId] = useState(null);
+    const [imageUrl, setImageUrl] = useState<string>("");
+    const [intervalId, setIntervalId] = useState<NodeJS.Timeout | null>(null);
 
     useEffect(() => {
         const fetchImage = () => {
@@ -20,14 +21,20 @@ function FetchImage() {
     }, []);
 
     const stopTimer = () => {
-        clearInterval(intervalId);
-        setIntervalId(null); // Set to null to indicate the timer is stopped
+        if (intervalId) {
+            clearInterval(intervalId);
+            setIntervalId(null); // Set to null to indicate the timer is stopped
+        }
     };
 
     return (
         <div>
             <h2>Random Image from Picsum</h2>
-            {imageUrl ? <img src={imageUrl} alt="Random" width="200" height ="200" /> : <p>Loading...</p>}
+            {imageUrl ? (
+                <Image src={imageUrl} alt="description" width={500} height={300} />
+            ) : (
+                <p>Loading...</p>
+            )}
             <br />
             <button onClick={stopTimer} disabled={!intervalId}>
                 Stop Timer
