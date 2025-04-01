@@ -31,7 +31,7 @@ function FetchImage() {
         <div>
             <h2>Random Image from Picsum</h2>
             {imageUrl ? (
-                <Image src={imageUrl} alt="description" width={500} height={300} />
+                <Image src={imageUrl} alt="description" width={500} height={300}  priority  />
             ) : (
                 <p>Loading...</p>
             )}

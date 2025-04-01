@@ -24,7 +24,7 @@ const App = () => {
   return (
     <div>
       <h1>Random Image</h1>
-      {imageUrl && <Image src={imageUrl} alt="Randomly fetched" />}
+      {imageUrl && <Image src={imageUrl} alt="Randomly fetched"  priority     />}
     </div>
   );
 };
